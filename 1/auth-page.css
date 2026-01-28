@@ -1,0 +1,209 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.outer-container{
+  display: flex;
+  background-color: rgb(236, 236, 236);
+  min-width: 500px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container{
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 350px;
+  padding: 40px 30px;
+  border-radius: 10px;
+}
+
+.enter-your-password-text{
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(2, 2, 126);
+}
+
+.user-info-container{
+  display: flex;
+  margin: 20px 0px;
+  align-items: center;
+}
+
+.profile-pic{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.account-info{
+  flex: 1;
+  padding: 0px 15px;
+}
+
+.account-type-text{
+  color: rgb(2, 2, 126);
+  margin: 5px 0px;
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.username-text{
+  color: rgb(2, 2, 126);
+  margin: 2px 0;
+  font-weight: bold;
+}
+
+.password-text{
+  color: rgb(2, 2, 126);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.password-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.password-input-container{
+  display: flex;
+  border-style: solid;
+  border-color: rgb(2, 2, 126);
+  border-width: 2px;
+  width: 80%;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.lock-svg{
+  color: rgb(2, 2, 126);
+}
+
+.lock-svg path{
+  stroke-width: 12px;
+}
+
+.lock-svg-span{
+  margin: 0px 8px;
+}
+
+.show-password-svg{
+  margin-left: 8px;
+}
+
+.show-password-button{
+  height: 35px;
+  width: 35px;
+  margin: 0px 6px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.show-password-button.show{
+  background-color: rgba(2, 2, 126, 0.3);
+}
+
+.password-input{
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  font-size: 15px;
+}
+
+.switch{
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  width: 44px;
+}
+
+.switch input{
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.slider{
+  position: absolute;
+  inset: 0;
+  background-color: transparent;
+  border-radius: 24px;
+  border-color: rgb(0, 71, 158);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.slider::before{
+  content: "";
+  inset: 0;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(2, 2, 126);
+  border-radius: 50%;
+  top: 1px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+input:checked + .slider::before{
+  transform: translateX(18px);
+}
+
+input:checked + .slider{
+  background-color: rgba(2, 2, 126, 0.463);
+}
+
+.signin-container{
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+  margin: 22px 0px;
+  align-items: center;
+}
+
+.switch-container{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stay-text{
+  color: rgb(2, 2, 126);
+}
+
+.continue-button{
+  background-color: rgb(2, 2, 126);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.reset-password-text{
+  color:  rgb(2, 2, 126);
+}
+
+/*
+<svg fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+</svg>
+*/
