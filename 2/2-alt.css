@@ -1,0 +1,111 @@
+/* "*" -- is a universal selector that applies the properties to all the elements
+ By default - box-sizing is content-box(content(50) + padding(2*5) = real width(60)). border-box makes the element broder centric*/
+* {
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(241, 241, 241);
+}
+
+main{
+  position: relative;
+  background: linear-gradient(to right, rgb(100, 100, 250), rgb(23, 23, 255));
+  color: wheat;
+  box-shadow: 0 0 0 20px rgb(201, 201, 201);
+  border-radius: 10px;
+  padding: 4rem 1rem;
+  width: 100%;
+  text-align: center;
+  max-width: 800px;
+}
+
+h2{
+  margin-top: 0;
+}
+
+/*
+margin: 2rem auto 0(top right/left[to center] bottom)
+*/
+.email-form{
+  position: relative;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.email-input{
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+}
+
+input::placeholder{
+  color: rgb(231, 231, 231);
+}
+
+.send-svg{
+  height: 25px;
+  width: 25px;
+}
+
+/* 
+centering svg: make button flex and use justify and align
+aspect ratio: (1 - makes the width and height equal)
+calc:
+*/
+.send-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: calc(100% - 10px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  right: 5px;
+  top: 5px;
+}
+
+
+.profile-pic-container {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  left: 0;
+  bottom: -50px;
+}
+
+.profile-pic-container img{
+  width: 75px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin: 0 1rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/*
+What is the difference: media and media screen practically doesn't have a difference. @media screen is a query for certain type of media
+rarely used like (@media print (){} for print related screens)
+*/
+@media(width < 550px){
+  .profile-pic-container img:nth-child(n + 3){
+    display: none;
+  }
+}
+
+@media screen and (width < 550px){
+  .profile-pic-container img:nth-child(n + 3){
+    display: none;
+  }
+}

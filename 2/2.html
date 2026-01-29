@@ -4,12 +4,12 @@
   <head>
     <title>UI challenge 2</title>
 
-    <link rel="stylesheet" href="./2.css">
+    <link rel="stylesheet" href="./2-alt.css">
   </head>
   <body>
-    <div class="main-container">
-      <div class="main-container2">
-        <h2>Already working together?</h2>
+    <!-- <main> elements contains the important/unique content of the page -->
+    <main>
+      <h2>Already working together?</h2>
         <p>Log in to your account and connect with your teammates!</p>
         <form class="email-form">
           <input class="email-input" placeholder="youremail@address.com"/>
@@ -20,17 +20,17 @@
           </button>
         </form>
         <div class="profile-pic-container">
-          <img class="profile-pic" src="https://i.pravatar.cc/150?img=3"/>
+          <!-- "alt" attribute is the alternative for the image. Also, adds accessibility-->
+          <img class="profile-pic" src="https://i.pravatar.cc/150?img=3" alt="user-1"/>
           
-          <img class="profile-pic" src="https://i.pravatar.cc/150?img=4"/>
+          <img class="profile-pic" src="https://i.pravatar.cc/150?img=4" alt="user-2"/>
           
-          <img class="profile-pic" src="https://i.pravatar.cc/150?img=5"/>
+          <img class="profile-pic" src="https://i.pravatar.cc/150?img=5" alt="user-3"/>
           
-          <img class="profile-pic" src="https://i.pravatar.cc/150?img=6"/>
+          <img class="profile-pic" src="https://i.pravatar.cc/150?img=6" alt="user-4"/>
 
-          <img class="profile-pic" src="https://i.pravatar.cc/150?img=7"/>
+          <img class="profile-pic" src="https://i.pravatar.cc/150?img=7" alt="user-5"/>
         </div>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
