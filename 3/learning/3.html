@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>UI challenge 3</title>
+
+    <link rel="stylesheet" href="./3.css"/>
+  </head>
+
+  <body>
+    <main>
+      <h2>24 birthdays today</h2>
+
+      <!-- <ul> - unordered list <ol> - ordered list (helps to group elements together)
+        Also, used with screen readers to read the element as list. By default browser displays it with bullet points-->
+
+      <!-- <li> represents one item inside a list. Should be nested within <ul/ol/menu> -->
+
+      <!-- <small> represents secondary/fine print text(helping text, discalimers etc), Its better to use <small> than <span> if it represents some secondary info-->
+      <ul id="main-list" class="list"></ul>
+      <button id="view-btn" class="view-all-btn">View all</button>
+    </main>
+  </body>
+
+  <script>
+
+    // For get element in js use id instead of class names. 
+    const viewButtonElem = document.getElementById('view-btn');
+    const mainList = document.getElementById("main-list");
+
+    let addedUsers = 0;
+
+    const initialusers = [
+      {
+        name: "Bertie, Yates",
+        age: 32,
+        image: "https://i.pravatar.cc/150?img=3"
+      },
+      {
+        name: "Javen, bes",
+        age: 29,
+        image: "https://i.pravatar.cc/150?img=8"
+      },
+      {
+        name: "Sarah, lates",
+        age: 28,
+        image: "https://i.pravatar.cc/150?img=9"
+      },
+      {
+        name: "Kristupas",
+        age: 34,
+        image: "https://i.pravatar.cc/150?img=11"
+      },
+      {
+        name: "Ana, karpov",
+        age: 21,
+        image: "https://i.pravatar.cc/150?img=20"
+      }
+    ];
+
+    const newUsers = [
+      {
+        name: "Linda",
+        age: 40,
+        image: "https://i.pravatar.cc/150?img=21"
+      },
+      {
+        name: "Marcus",
+        age: 18,
+        image: "https://i.pravatar.cc/150?img=23"
+      },
+      {
+        name: "Ramesh",
+        age: 25,
+        image: "https://i.pravatar.cc/150?img=25"
+      },
+      {
+        name: "Rafah",
+        age: 27,
+        image: "https://i.pravatar.cc/150?img=27"
+      },
+      {
+        name: "Mason",
+        age: 36,
+        image: "https://i.pravatar.cc/150?img=28"
+      }
+    ];
+
+    initialusers.forEach((user, i) => addUser(user, i))
+
+    function addUser(user, index){
+      const listItemElem = document.createElement('li')
+      listItemElem.classList.add("list-item");
+
+      listItemElem.innerHTML = `
+        <img class="profile-img" src=${user.image} alt="user-${index}"/>
+          <div class="user-info-container">
+            <span class="user-name">${user.name}</span>
+            <small class="user-age">${user.age} years</small>
+          </div>
+      `
+
+      mainList.appendChild(listItemElem);
+    }
+
+    viewButtonElem.addEventListener('click', () => {
+      addUser(newUsers[addedUsers]);
+      addedUsers++;
+
+      if(addedUsers == newUsers.length)
+        viewButtonElem.style.display = 'none';
+    })
+  </script>
+</html>
