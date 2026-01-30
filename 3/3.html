@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>UI challenge 3</title>
+
+    <link rel="stylesheet" href="./3.css"/>
+  </head>
+
+  <body>
+    <main>
+      <p>24 birthdays today</p>
+      <div class="info-container">
+        <div class="profile-container">
+          <img class="profile-img" src="https://i.pravatar.cc/150?img=3" alt="user-1"/>
+          <div class="user-info-container">
+            <span class="user-name">Bertie, Yates</span>
+            <span class="user-age">32 years</span>
+          </div>
+        </div>
+        <div class="profile-container">
+          <img class="profile-img" src="https://i.pravatar.cc/150?img=8" alt="user-2"/>
+          <div class="user-info-container">
+            <span class="user-name">Javen, bes</span>
+            <span class="user-age">29 years</span>
+          </div>
+        </div>
+        <div class="profile-container">
+          <img class="profile-img" src="https://i.pravatar.cc/150?img=9" alt="user-3"/>
+          <div class="user-info-container">
+            <span class="user-name">Sarah, lates</span>
+            <span class="user-age">28 years</span>
+          </div>
+        </div>
+        <div class="profile-container">
+          <img class="profile-img" src="https://i.pravatar.cc/150?img=11" alt="user-4"/>
+          <div class="user-info-container">
+            <span class="user-name">Kristupas</span>
+            <span class="user-age">34 years</span>
+          </div>
+        </div>
+        <div class="profile-container">
+          <img class="profile-img" src="https://i.pravatar.cc/150?img=20" alt="user-5"/>
+          <div class="user-info-container">
+            <span class="user-name">Ana, karpov</span>
+            <span class="user-age">21 years</span>
+          </div>
+        </div>
+      </div>
+      <button class="view-all-btn">View all</button>
+    </main>
+  </body>
+
+  <script>
+    const viewButtonElem = document.querySelector('.view-all-btn');
+    const infoContainer = document.querySelector('.info-container');
+
+    let addedUsers = 0;
+
+    const users = [
+      {
+        name: "Linda",
+        age: 40
+      },
+      {
+        name: "Marcus",
+        age: 18
+      },
+      {
+        name: "Ramesh",
+        age: 25
+      },
+      {
+        name: "Rafah",
+        age: 27
+      },
+      {
+        name: "Mason",
+        age: 36
+      }
+    ]
+
+    viewButtonElem.addEventListener('click', () => {
+      const existingUsers = infoContainer.innerHTML;
+     
+      if(addedUsers < users.length){
+        infoContainer.innerHTML = `
+          ${existingUsers}
+          <div class="profile-container">
+            <img class="profile-img" src="https://i.pravatar.cc/150?img=${addedUsers + 50}" alt="user-${addedUsers + 50}">
+            <div class="user-info-container">
+              <span class="user-name">${users[addedUsers].name}</span>
+              <span class="user-age">${users[addedUsers].age} years</span>
+            </div>
+          </div>
+        `;
+
+        if(addedUsers == users.length - 1)
+          viewButtonElem.style.display = "none";
+        addedUsers += 1;
+      }
+    })
+  </script>
+</html>
