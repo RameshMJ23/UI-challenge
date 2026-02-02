@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Popup practice</title>
+
+    <link rel="stylesheet" href="./popup.css"/>
+  </head>
+
+  <body>
+    <dialog id="modern-popup">
+      <p>Modern pop up</p>
+    </dialog>
+    <div id="popup-container" class="popup-container">
+      <p>Thank you</p>
+      <p>This is classic popup. Use it if full controll is needed!</p>
+      <button id="close-btn" onclick="closePopup()">Okay</button>
+    </div>
+    <form id="submit-form">
+      <button type="submit" id="submit-btn" class="submit-btn" onclick="showPopup()">
+        Submit
+      </button>
+      <button id="open-dialog">
+        Open Dialog
+      </button>
+    </form>
+  </body>
+
+  <script>
+
+    const submitButton = document.getElementById('submit-btn');
+    const closeButton = document.getElementById('close-btn');
+    const form = document.getElementById('submit-form');
+    const popupContainer = document.getElementById('popup-container');
+    const modernPopup = document.getElementById('modern-popup');
+
+    document.getElementById('open-dialog').onclick = () => modernPopup.showModal();
+    //When a type=submit button inside form is clicked submit is fired 
+    form.addEventListener("submit", () => {
+      // event.preventDefault() prevents the page from reloading
+      event.preventDefault();
+      console.log("Submit fired");
+    });
+    
+    function showPopup(){
+      popupContainer.classList.add('open')
+    }
+
+    function closePopup(){
+      popupContainer.classList.remove('open')
+    }
+
+    
+  </script>
+</html>

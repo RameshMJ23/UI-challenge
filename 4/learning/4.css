@@ -13,24 +13,20 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.popup-container{
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.1);
-  position: absolute;
+main{
+  position: relative;
   background-color: white;
   max-width: 360px;
   width: 100%;
   padding: 50px;
   box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.2);
-  visibility: hidden;
+  border-radius: 10px;
+  border-top-right-radius: 25px;
   transition: transform 0.3s;
-  border-top-right-radius: 10px;
 }
 
-.popup-container.open{
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
+main.hidden{
+  transform: scale(0);
 }
 
 .tree-svg{
@@ -59,6 +55,7 @@ h2{
   color: rgb(216, 141, 0);
 }
 
+/*text-transform = transform text into upper/lower case*/
 .get-gift-btn{
   width: 80%;
   color: white;
@@ -69,6 +66,7 @@ h2{
   border-radius: 5px;
   margin: 1.5rem 0 0;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .close-btn{
@@ -76,18 +74,20 @@ h2{
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 8px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   background-color: transparent;
   border: none;
   cursor: pointer;
   aspect-ratio: 1;
   border-radius: 50%;
   padding: 0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.1s linear;
 }
 
+/* rotates the button 90deg*/
 .close-btn:hover{
+  transform: rotate(90deg);
   background-color: rgba(128, 128, 128, 0.3);
 }
 
@@ -98,16 +98,38 @@ h2{
   height: 30px;
 }
 
-.gift-svg{
-  height: 80px;
-  width: 80px;
+/*Usually when animation ends, the object comes to the starting position "forwards" makes the object stay at the end */
+.snow{
+  animation: fall 3s linear forwards;
+  background-color: white;
+  height: 10px;
+  width: 10px;
+  position: fixed;
+  top:-20px;
+  left: 0;
+  border-radius: 15px;
+  z-index: -1;
 }
 
-.see-gift-btn{
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
+/* We can also use "top" property for animation 
+but result would be slower and janky. Transfrom doesn't affect layout, efficient. Hence results in smoother animation */
+@keyframes fall{
+  0%{
+    transform: translateY(-10vh);
+  }
+
+  100%{
+    transform: translateY(110vh);
+  }
 }
+
+/*
+@keyframes fall{
+  0%{
+    top: -10vh;
+  }
+
+  100%{
+    top: 110vh;
+  }
+}*/
